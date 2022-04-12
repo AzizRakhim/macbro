@@ -97,6 +97,11 @@ elRealPrice.innerText = elPrice;
 elCrossedPrice = macObject[0].spec[0].discount;
 elHeroCrossedPrice.innerText = elCrossedPrice;
 
+let unchagingValue = elPrice;
+let unchagingDiscount = elCrossedPrice;
+
+document.querySelector(".hero__input").value = 1;
+
 // Changing the memories and active state on memory and ram buttons 
 
 memoryFunc(elMemoryBtns);
@@ -122,6 +127,11 @@ function memoryFunc(elMemoryBtns, num){
 
       elCrossedPrice = macObject[num].spec[index].discount;
       elHeroCrossedPrice.innerText = elCrossedPrice;
+
+      unchagingValue = elPrice;
+      unchagingDiscount = elCrossedPrice;
+
+      document.querySelector(".hero__input").value = 1;
     });
   });
 }
@@ -254,6 +264,11 @@ elRamItems.forEach((item, index) => {
     elCrossedPrice = macObject[index].spec[0].discount;
     elHeroCrossedPrice.innerText = elCrossedPrice;
 
+    unchagingValue = elPrice;
+    unchagingDiscount = elCrossedPrice;
+
+    document.querySelector(".hero__input").value = 1;
+
     elMemoryList.innerHTML = "";
 
     macObject[index].spec.forEach((item) => {
@@ -285,18 +300,18 @@ let elInput = document.querySelector(".hero__input");
 elPlus.addEventListener("click", () => {
   let elValue = Number(elInput.value);
   elInput.value = elValue += 1;
-  elRealPrice.innerText = elPrice *= 2;
+  elRealPrice.innerText = elPrice += unchagingValue;
 
-  elHeroCrossedPrice.innerText = elCrossedPrice *= 2;
+  elHeroCrossedPrice.innerText = elCrossedPrice += unchagingDiscount;
 });
 
 elMinus.addEventListener('click', () => {
   let elValue = Number(elInput.value);
   if(elValue > 1){
     elInput.value = elValue -= 1;
-    elRealPrice.innerText = elPrice /= 2;
+    elRealPrice.innerText = elPrice -= unchagingValue;
 
-    elHeroCrossedPrice.innerText = elCrossedPrice /= 2;
+    elHeroCrossedPrice.innerText = elCrossedPrice -= unchagingDiscount;
   }
 });
 

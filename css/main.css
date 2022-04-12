@@ -364,6 +364,18 @@ body {
           flex-flow: wrap column;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #06c;
+}
+
 .container {
   width: 1200px;
   padding: 0 15px;
@@ -634,5 +646,11 @@ body {
 
 .bx-fullscreen:hover {
   color: #337ab7;
+}
+
+.bx-link-external {
+  font-size: 30px;
+  color: #06c;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
