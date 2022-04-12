@@ -1,4 +1,4 @@
-// Creating the price variables. The calculation will be done whereever it is needed
+// Creating the price variables. The calculation will be done wherever it is required
 
 let elPrice;
 let elCrossedPrice;
@@ -53,13 +53,23 @@ elTitleHolder.innerHTML = `
 
 // Setting the Rams of the product
 
-let elRamBtns = document.querySelectorAll(".ram-btn");
+let elRamList = document.querySelector(".ram-list");
 
-elRamBtns.forEach((item, index) => {
-  item.innerHTML = `
-    ${macObject[index].ram}GB
+macObject.forEach((item) => {
+  let elRamItem = document.createElement("li");
+  elRamItem.className = "hero__choice-item col-4";
+
+  elRamItem.innerHTML = `
+    <button class="hero__choice-btn ram-btn">
+      ${item.ram}GB
+    </button> 
   `;
+
+  elRamList.appendChild(elRamItem);
 });
+
+let elRamItems = document.querySelectorAll(".ram-btn");
+elRamItems[0].classList.add("active");
 
 // Setting the memories of the product
 
@@ -91,70 +101,27 @@ elHeroCrossedPrice.innerText = elCrossedPrice;
 
 memoryFunc(elMemoryBtns);
 
-function memoryFunc(elMemoryBtns){
+function memoryFunc(elMemoryBtns, num){
   let elMemoryTitle = document.querySelector(".memory-title");
   
   elMemoryTitle.innerText = `${macObject[0].spec[0].memory}`;
 
-  elMemoryBtns.forEach((item, index, arr) => {
+  elMemoryBtns.forEach((item, index) => {
     item.addEventListener("click", () => {
-      if(arr.length > 2){
-        if(index == 0){
-          item.classList.add("active");
-          arr[1].classList.remove("active");
-          arr[2].classList.remove("active");
-
-          elPrice = macObject[1].spec[index].price;
-          elRealPrice.innerText = elPrice;
-
-          elCrossedPrice = macObject[1].spec[index].discount;
-          elHeroCrossedPrice.innerText = elCrossedPrice;
-        } else if(index == 1){
-          item.classList.add("active");
-          arr[0].classList.remove("active");
-          arr[2].classList.remove("active");
-
-          elPrice = macObject[1].spec[index].price;
-          elRealPrice.innerText = elPrice;
-
-          elCrossedPrice = macObject[1].spec[index].discount;
-          elHeroCrossedPrice.innerText = elCrossedPrice;
-        } else{
-          item.classList.add("active");
-          arr[0].classList.remove("active");
-          arr[1].classList.remove("active");
-
-          elPrice = macObject[1].spec[index].price;
-          elRealPrice.innerText = elPrice;
-
-          elCrossedPrice = macObject[1].spec[index].discount;
-          elHeroCrossedPrice.innerText = elCrossedPrice;
-        } 
-      } else{
-        if(index == 0){
-          item.classList.add("active");
-          arr[1].classList.remove("active");
-
-          elPrice = macObject[0].spec[index].price;
-          elRealPrice.innerText = elPrice;
-
-          elCrossedPrice = macObject[0].spec[index].discount;
-          elHeroCrossedPrice.innerText = elCrossedPrice;
-        } else if(index == 1){
-          item.classList.add("active");
-          arr[0].classList.remove("active");
-
-          elPrice = macObject[0].spec[index].price;
-          elRealPrice.innerText = elPrice;
-
-          elCrossedPrice = macObject[0].spec[index].discount;
-          elHeroCrossedPrice.innerText = elCrossedPrice;
-        }
-      }
-     
+      elMemoryBtns.forEach((element) => {
+        element.classList.remove("active");
+      })
+      item.classList.add("active");
+         
       let elMemoryTitle = document.querySelector(".memory-title");
   
       elMemoryTitle.innerText = `${macObject[1].spec[index].memory}`;
+
+      elPrice = macObject[num].spec[index].price;
+      elRealPrice.innerText = elPrice;
+
+      elCrossedPrice = macObject[num].spec[index].discount;
+      elHeroCrossedPrice.innerText = elCrossedPrice;
     });
   });
 }
@@ -163,7 +130,7 @@ function memoryFunc(elMemoryBtns){
 
 let elColorBtns = document.querySelectorAll(".color-btn");
 
-elColorBtns.forEach((item, index, arr) => {
+elColorBtns.forEach((item, index) => {
   item.addEventListener("click", () => {
     if(index == 0){
       elBigImgHolder.innerHTML = "";
@@ -194,11 +161,8 @@ elColorBtns.forEach((item, index, arr) => {
       
       let elImages = document.querySelectorAll(".hero__item");
       elImages[0].classList.add("active");
+      elBigImgHolder.style.transform = `translateX(${0}px)`;
       carousel();
-
-      item.classList.add("active");
-      arr[1].classList.remove("active");
-      arr[2].classList.remove("active");
     } else if(index == 1){
       elBigImgHolder.innerHTML = "";
       macObject[0].silver.forEach((item) => {
@@ -228,11 +192,8 @@ elColorBtns.forEach((item, index, arr) => {
 
       let elImages = document.querySelectorAll(".hero__item");
       elImages[0].classList.add("active");
+      elBigImgHolder.style.transform = `translateX(${0}px)`;
       carousel();
-
-      item.classList.add("active");
-      arr[0].classList.remove("active");
-      arr[2].classList.remove("active");
     } else{
       elBigImgHolder.innerHTML = "";
       macObject[0].spaceGray.forEach((item) => {
@@ -262,15 +223,16 @@ elColorBtns.forEach((item, index, arr) => {
 
       let elImages = document.querySelectorAll(".hero__item");
       elImages[0].classList.add("active");
+      elBigImgHolder.style.transform = `translateX(${0}px)`;
       carousel();
-
-      item.classList.add("active");
-      arr[0].classList.remove("active");
-      arr[1].classList.remove("active");
     }
+
+    elColorBtns.forEach((element) => {
+      element.classList.remove("active");
+    })
+    item.classList.add("active");
     
     let elClassName = document.querySelector(".color-name");
-
     elClassName.innerText = `${macObject[0].color[index]}`;
   });
 });
@@ -278,32 +240,20 @@ elColorBtns.forEach((item, index, arr) => {
 // Changing the ram properties on Ram button
 
 let elRamTitle = document.querySelector(".ram-title");
-elRamBtns.forEach((item, index, arr) => {
+elRamItems.forEach((item, index) => {
   item.addEventListener("click", () => {
-    if(index == 0){
-      elRamTitle.innerText = macObject[index].ram;
+    elRamItems.forEach((value) => {
+      value.classList.remove("active");
+    });
+    item.classList.add("active");
+    elRamTitle.innerText = macObject[index].ram;
 
-      item.classList.add("active");
-      arr[1].classList.remove("active");
+    elPrice = macObject[index].spec[0].price;
+    elRealPrice.innerText = elPrice;
 
-      elPrice = macObject[index].spec[0].price;
-      elRealPrice.innerText = elPrice;
+    elCrossedPrice = macObject[index].spec[0].discount;
+    elHeroCrossedPrice.innerText = elCrossedPrice;
 
-      elCrossedPrice = macObject[index].spec[0].discount;
-      elHeroCrossedPrice.innerText = elCrossedPrice;
-    } else{
-      elRamTitle.innerText = macObject[index].ram;
-
-      item.classList.add("active");
-      arr[0].classList.remove("active");
-
-      elPrice = macObject[index].spec[0].price;
-      elRealPrice.innerText = elPrice;
-      
-      elCrossedPrice = macObject[index].spec[0].discount;
-      elHeroCrossedPrice.innerText = elCrossedPrice;
-    }
-    
     elMemoryList.innerHTML = "";
 
     macObject[index].spec.forEach((item) => {
@@ -322,7 +272,7 @@ elRamBtns.forEach((item, index, arr) => {
     let elMemoryBtns = document.querySelectorAll(".memory-btn");
     elMemoryBtns[0].classList.add("active");
 
-    memoryFunc(elMemoryBtns);
+    memoryFunc(elMemoryBtns, index);
   });
 });
 
@@ -356,17 +306,12 @@ function carousel(){
   let arr = document.querySelectorAll(".hero__item");
   arr.forEach((item, index) => {
     item.addEventListener("click", () => {
-      arr.forEach((value, idx) => {
-        if(index == idx){
-          value.classList.add("active");
-        } else{
-          value.classList.remove("active");
-        }
+      arr.forEach((value) => {
+        value.classList.remove("active");
       });
-    
+      item.classList.add("active");
+
       elBigImgHolder.style.transform = `translateX(${-index * 550}px)`;
     });
   });  
 }
-
-

@@ -384,8 +384,8 @@ body {
 
 .hero__big-img-holder {
   position: relative;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .hero__img-keeper img {
@@ -600,6 +600,12 @@ body {
 .add-cart {
   color: #fff;
   background-color: #06c;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.add-cart:hover {
+  background: #0059b3;
 }
 
 .compare {
@@ -611,5 +617,22 @@ body {
   font-weight: 400;
   font-size: 28px;
   text-decoration: line-through;
+}
+
+.bx-fullscreen {
+  font-size: 35px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  color: #fff;
+  -webkit-filter: drop-shadow(0 2px 2px #1a1a1a);
+          filter: drop-shadow(0 2px 2px #1a1a1a);
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.bx-fullscreen:hover {
+  color: #337ab7;
 }
 /*# sourceMappingURL=main.css.map */

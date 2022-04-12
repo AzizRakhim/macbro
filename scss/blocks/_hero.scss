@@ -12,7 +12,7 @@
 
 .hero__big-img-holder{
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .hero__img-keeper{ 
@@ -220,6 +220,11 @@
 .add-cart{
   color: #fff;
   background-color: #06c;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: #0059b3;
+  }
 }
 
 .compare{
@@ -231,4 +236,19 @@
   font-weight: 400;
   font-size: 28px;
   text-decoration: line-through;
+}
+
+.bx-fullscreen{
+  font-size: 35px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  color: #fff;
+  filter: drop-shadow(0 2px 2px #1a1a1a);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    color: #337ab7;
+  }
 }
