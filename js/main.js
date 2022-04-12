@@ -1,17 +1,47 @@
-let elRamSum = 10000000;
-let elMemorySum = 2497000;
+// Creating the price variables. The calculation will be done whereever it is needed
+
+let elPrice;
+let elCrossedPrice;
+let elRealPrice = document.querySelector(".real-price");
+let elHeroCrossedPrice = document.querySelector(".hero__crossed-price");
+
+// Setting the big img
 
 let elBigImgHolder = document.querySelector(".hero__big-img-holder");
 
-elBigImgHolder.innerHTML = `<img src="${macObject[0].bigPicGold}" alt="computer">`;
+macObject[0].gold.forEach((item) => {
+  let elImgKeeper = document.createElement("div");
+  elImgKeeper.className = "hero__img-keeper";
 
-let elHeroBtns = document.querySelectorAll(".hero__btn");
-
-elHeroBtns.forEach((item, index) => {
-  item.innerHTML = `
-    <img src="${macObject[0].gold[index]}" alt="laptop">  
+  elImgKeeper.innerHTML = `
+    <img src="${item}" alt="laptop">
   `;
-});
+
+  elBigImgHolder.appendChild(elImgKeeper);
+}); 
+
+// Setting the small imgs in carousel
+
+let elHeroList = document.querySelector(".hero__list");
+
+macObject[0].gold.forEach((item) => {
+  let elImgitem = document.createElement("li");
+  elImgitem.className = "hero__item";
+
+  elImgitem.innerHTML = `
+    <button class="hero__btn">
+      <img src="${item}" alt="laptop">
+    </button>
+  `;
+
+  elHeroList.appendChild(elImgitem);
+}); 
+
+let elImgSmallItems = elHeroList.querySelectorAll("li");
+elImgSmallItems[0].classList.add("active");
+carousel();
+
+// Setting the title of the product
 
 let elTitleHolder = document.querySelector(".title-holder");
 
@@ -21,6 +51,8 @@ elTitleHolder.innerHTML = `
   </h2>
 `;
 
+// Setting the Rams of the product
+
 let elRamBtns = document.querySelectorAll(".ram-btn");
 
 elRamBtns.forEach((item, index) => {
@@ -28,6 +60,8 @@ elRamBtns.forEach((item, index) => {
     ${macObject[index].ram}GB
   `;
 });
+
+// Setting the memories of the product
 
 let elMemoryList = document.querySelector(".memory-list");
 
@@ -47,6 +81,14 @@ macObject[0].spec.forEach((item) => {
 let elMemoryBtns = document.querySelectorAll(".memory-btn");
 elMemoryBtns[0].classList.add("active");
 
+elPrice = macObject[0].spec[0].price;
+elRealPrice.innerText = elPrice;
+
+elCrossedPrice = macObject[0].spec[0].discount;
+elHeroCrossedPrice.innerText = elCrossedPrice;
+
+// Changing the memories and active state on memory and ram buttons 
+
 memoryFunc(elMemoryBtns);
 
 function memoryFunc(elMemoryBtns){
@@ -62,80 +104,166 @@ function memoryFunc(elMemoryBtns){
           arr[1].classList.remove("active");
           arr[2].classList.remove("active");
 
-          elMemorySum = 6935000;
+          elPrice = macObject[1].spec[index].price;
+          elRealPrice.innerText = elPrice;
+
+          elCrossedPrice = macObject[1].spec[index].discount;
+          elHeroCrossedPrice.innerText = elCrossedPrice;
         } else if(index == 1){
           item.classList.add("active");
           arr[0].classList.remove("active");
           arr[2].classList.remove("active");
 
-          elMemorySum = 9270500;
+          elPrice = macObject[1].spec[index].price;
+          elRealPrice.innerText = elPrice;
+
+          elCrossedPrice = macObject[1].spec[index].discount;
+          elHeroCrossedPrice.innerText = elCrossedPrice;
         } else{
           item.classList.add("active");
           arr[0].classList.remove("active");
           arr[1].classList.remove("active");
 
-          elMemorySum = 10438500;
+          elPrice = macObject[1].spec[index].price;
+          elRealPrice.innerText = elPrice;
+
+          elCrossedPrice = macObject[1].spec[index].discount;
+          elHeroCrossedPrice.innerText = elCrossedPrice;
         } 
       } else{
         if(index == 0){
           item.classList.add("active");
           arr[1].classList.remove("active");
-          elMemorySum = 2497000;
+
+          elPrice = macObject[0].spec[index].price;
+          elRealPrice.innerText = elPrice;
+
+          elCrossedPrice = macObject[0].spec[index].discount;
+          elHeroCrossedPrice.innerText = elCrossedPrice;
         } else if(index == 1){
           item.classList.add("active");
           arr[0].classList.remove("active");
-          elMemorySum = 6066000;
+
+          elPrice = macObject[0].spec[index].price;
+          elRealPrice.innerText = elPrice;
+
+          elCrossedPrice = macObject[0].spec[index].discount;
+          elHeroCrossedPrice.innerText = elCrossedPrice;
         }
       }
      
       let elMemoryTitle = document.querySelector(".memory-title");
   
       elMemoryTitle.innerText = `${macObject[1].spec[index].memory}`;
-
-      let elResult = elMemorySum + elRamSum;
-      let elRealPrice = document.querySelector(".real-price");
-      elRealPrice.innerText = elResult;
     });
-
   });
 }
+
+// Changing the imgs in colour buttons
 
 let elColorBtns = document.querySelectorAll(".color-btn");
 
 elColorBtns.forEach((item, index, arr) => {
   item.addEventListener("click", () => {
     if(index == 0){
-      elBigImgHolder.innerHTML = `<img src="${macObject[0].bigPicGold}" alt="computer">`;
-
-      elHeroBtns.forEach((value, idx) => {
-        value.innerHTML = `
-          <img src="${macObject[0].gold[idx]}" alt="laptop">  
+      elBigImgHolder.innerHTML = "";
+      macObject[0].gold.forEach((item) => {
+        let elImgKeeper = document.createElement("div");
+        elImgKeeper.className = "hero__img-keeper";
+      
+        elImgKeeper.innerHTML = `
+          <img src="${item}" alt="laptop">
         `;
+      
+        elBigImgHolder.appendChild(elImgKeeper);
+      }); 
+
+      elHeroList.innerHTML = "";
+      macObject[0].gold.forEach((item) => {
+        let elImgitem = document.createElement("li");
+        elImgitem.className = "hero__item";
+      
+        elImgitem.innerHTML = `
+          <button class="hero__btn">
+            <img src="${item}" alt="laptop">
+          </button>
+        `;
+      
+        elHeroList.appendChild(elImgitem);
       });
+      
+      let elImages = document.querySelectorAll(".hero__item");
+      elImages[0].classList.add("active");
+      carousel();
 
       item.classList.add("active");
       arr[1].classList.remove("active");
       arr[2].classList.remove("active");
     } else if(index == 1){
-      elBigImgHolder.innerHTML = `<img src="${macObject[0].bigPicSilver}" alt="computer">`;
-
-      elHeroBtns.forEach((value, idx) => {
-        value.innerHTML = `
-          <img src="${macObject[0].silver[idx]}" alt="laptop">  
+      elBigImgHolder.innerHTML = "";
+      macObject[0].silver.forEach((item) => {
+        let elImgKeeper = document.createElement("div");
+        elImgKeeper.className = "hero__img-keeper";
+      
+        elImgKeeper.innerHTML = `
+          <img src="${item}" alt="laptop">
         `;
+      
+        elBigImgHolder.appendChild(elImgKeeper);
       });
+
+      elHeroList.innerHTML = "";
+      macObject[0].silver.forEach((item) => {
+        let elImgitem = document.createElement("li");
+        elImgitem.className = "hero__item";
+      
+        elImgitem.innerHTML = `
+          <button class="hero__btn">
+            <img src="${item}" alt="laptop">
+          </button>
+        `;
+      
+        elHeroList.appendChild(elImgitem);
+      });
+
+      let elImages = document.querySelectorAll(".hero__item");
+      elImages[0].classList.add("active");
+      carousel();
 
       item.classList.add("active");
       arr[0].classList.remove("active");
       arr[2].classList.remove("active");
     } else{
-      elBigImgHolder.innerHTML = `<img src="${macObject[0].bigPicGrey}" alt="computer">`;
-
-      elHeroBtns.forEach((value, idx) => {
-        value.innerHTML = `
-          <img src="${macObject[0].spaceGray[idx]}" alt="laptop">  
+      elBigImgHolder.innerHTML = "";
+      macObject[0].spaceGray.forEach((item) => {
+        let elImgKeeper = document.createElement("div");
+        elImgKeeper.className = "hero__img-keeper";
+      
+        elImgKeeper.innerHTML = `
+          <img src="${item}" alt="laptop">
         `;
+      
+        elBigImgHolder.appendChild(elImgKeeper);
       });
+
+      elHeroList.innerHTML = "";
+      macObject[0].spaceGray.forEach((item) => {
+        let elImgitem = document.createElement("li");
+        elImgitem.className = "hero__item";
+      
+        elImgitem.innerHTML = `
+          <button class="hero__btn">
+            <img src="${item}" alt="laptop">
+          </button>
+        `;
+      
+        elHeroList.appendChild(elImgitem);
+      });
+
+      let elImages = document.querySelectorAll(".hero__item");
+      elImages[0].classList.add("active");
+      carousel();
+
       item.classList.add("active");
       arr[0].classList.remove("active");
       arr[1].classList.remove("active");
@@ -147,7 +275,7 @@ elColorBtns.forEach((item, index, arr) => {
   });
 });
 
-let count = 0;
+// Changing the ram properties on Ram button
 
 let elRamTitle = document.querySelector(".ram-title");
 elRamBtns.forEach((item, index, arr) => {
@@ -158,15 +286,24 @@ elRamBtns.forEach((item, index, arr) => {
       item.classList.add("active");
       arr[1].classList.remove("active");
 
-      elRamSum = 10000000;
+      elPrice = macObject[index].spec[0].price;
+      elRealPrice.innerText = elPrice;
+
+      elCrossedPrice = macObject[index].spec[0].discount;
+      elHeroCrossedPrice.innerText = elCrossedPrice;
     } else{
       elRamTitle.innerText = macObject[index].ram;
 
       item.classList.add("active");
       arr[0].classList.remove("active");
-      elRamSum = 10000000;
-    }
 
+      elPrice = macObject[index].spec[0].price;
+      elRealPrice.innerText = elPrice;
+      
+      elCrossedPrice = macObject[index].spec[0].discount;
+      elHeroCrossedPrice.innerText = elCrossedPrice;
+    }
+    
     elMemoryList.innerHTML = "";
 
     macObject[index].spec.forEach((item) => {
@@ -185,20 +322,51 @@ elRamBtns.forEach((item, index, arr) => {
     let elMemoryBtns = document.querySelectorAll(".memory-btn");
     elMemoryBtns[0].classList.add("active");
 
-    
     memoryFunc(elMemoryBtns);
   });
-
 });
 
-if(count == 0){
-  elMemorySum = 2497000;
-  count=1;
-} else{
-  elMemorySum = 6935000;
-  count=0;
+// Adding plus and minus buttons
+
+let elMinus = document.querySelector(".minus");
+let elPlus = document.querySelector(".plus");
+let elInput = document.querySelector(".hero__input");
+
+elPlus.addEventListener("click", () => {
+  let elValue = Number(elInput.value);
+  elInput.value = elValue += 1;
+  elRealPrice.innerText = elPrice *= 2;
+
+  elHeroCrossedPrice.innerText = elCrossedPrice *= 2;
+});
+
+elMinus.addEventListener('click', () => {
+  let elValue = Number(elInput.value);
+  if(elValue > 1){
+    elInput.value = elValue -= 1;
+    elRealPrice.innerText = elPrice /= 2;
+
+    elHeroCrossedPrice.innerText = elCrossedPrice /= 2;
+  }
+});
+
+// Slider
+
+function carousel(){
+  let arr = document.querySelectorAll(".hero__item");
+  arr.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      arr.forEach((value, idx) => {
+        if(index == idx){
+          value.classList.add("active");
+        } else{
+          value.classList.remove("active");
+        }
+      });
+    
+      elBigImgHolder.style.transform = `translateX(${-index * 550}px)`;
+    });
+  });  
 }
 
-let elResult = elMemorySum + elRamSum;
-let elRealPrice = document.querySelector(".real-price");
-elRealPrice.innerText = elResult;
+

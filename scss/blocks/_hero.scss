@@ -6,20 +6,21 @@
   padding: 0 8px;
 }
 
+.hero__smth{
+  overflow-x: hidden;
+}
+
 .hero__big-img-holder{
-  width: 100%;
-  height: calc(100vh - 200px);
-  max-height: 500px;
   position: relative;
-  
+  transition: all 0.3s ease;
+}
+
+.hero__img-keeper{ 
+
   img{
-    width: 100%;
-    height: 100%;
-    max-height: 80%;
+    width: 550px;
+    height: 400px;
     object-fit: contain;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
 
@@ -175,14 +176,11 @@
   border-bottom-right-radius: 4px;
 }
 
-.hero__calculator-output{
+.hero__input{
   width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 1px solid #d6d6d6;
   height: 40px;
+  border: 1px solid #d6d6d6;
+  text-align: center;
 }
 
 .hero__price-holder{
@@ -227,4 +225,10 @@
 .compare{
   background-color: #f5f5f7;
   color: #06c;
+}
+
+.crossed-price{
+  font-weight: 400;
+  font-size: 28px;
+  text-decoration: line-through;
 }

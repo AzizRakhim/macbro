@@ -6,11 +6,13 @@ let macObject = [
     spec: [
       {
         memory: "256GB",
-        price: "12497000 so'm",
+        price: 12497000,
+        discount: 14621000
       },
       {
         memory: "512GB",
-        price: "15066000 so'm",
+        price: 15066000,
+        discount: 17627500
       },
     ],
 
@@ -65,15 +67,18 @@ let macObject = [
     spec: [
       {
         memory: "256GB",
-        price: "16935000 so'm",
+        price: 16935000,
+        discount: 19813500
       },
       {
         memory: "512GB",
-        price: "19270500 so'm",
+        price: 19270500,
+        discount: 22546500
       },
       {
         memory: "1TB",
-        price: "20438500 so'm",
+        price: 20438500,
+        discount: 23913000
       },
     ],
 

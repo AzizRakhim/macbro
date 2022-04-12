@@ -378,23 +378,21 @@ body {
   padding: 0 8px;
 }
 
-.hero__big-img-holder {
-  width: 100%;
-  height: calc(100vh - 200px);
-  max-height: 500px;
-  position: relative;
+.hero__smth {
+  overflow-x: hidden;
 }
 
-.hero__big-img-holder img {
-  width: 100%;
-  height: 100%;
-  max-height: 80%;
+.hero__big-img-holder {
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.hero__img-keeper img {
+  width: 550px;
+  height: 400px;
   -o-object-fit: contain;
      object-fit: contain;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 
 .hero__list {
@@ -557,20 +555,11 @@ body {
   border-bottom-right-radius: 4px;
 }
 
-.hero__calculator-output {
+.hero__input {
   width: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  border: 1px solid #d6d6d6;
   height: 40px;
+  border: 1px solid #d6d6d6;
+  text-align: center;
 }
 
 .hero__price-holder {
@@ -616,5 +605,11 @@ body {
 .compare {
   background-color: #f5f5f7;
   color: #06c;
+}
+
+.crossed-price {
+  font-weight: 400;
+  font-size: 28px;
+  text-decoration: line-through;
 }
 /*# sourceMappingURL=main.css.map */
