@@ -373,7 +373,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #06c;
+  background-color: #1d1d1d;
 }
 
 .container {
@@ -631,7 +631,9 @@ body {
   text-decoration: line-through;
 }
 
-.bx-fullscreen {
+.full-screen {
+  border: none;
+  background-color: transparent;
   font-size: 35px;
   position: absolute;
   bottom: 0;
@@ -644,7 +646,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.bx-fullscreen:hover {
+.full-screen:hover {
   color: #337ab7;
 }
 
@@ -652,5 +654,101 @@ body {
   font-size: 30px;
   color: #06c;
   cursor: pointer;
+}
+
+.modal-part {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1111;
+}
+
+.translate-div {
+  width: 550px;
+  height: 80vh;
+  position: relative;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
+  overflow: hidden;
+}
+
+.modal-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.modal-item img {
+  width: 550px;
+  height: 100%;
+}
+
+.modal-btn-div {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal-item-btn {
+  width: 150px;
+  height: 150px;
+  margin: 2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.modal-item-btn.active {
+  border: 2px solid #1d1d1d;
+}
+
+.modal-item-btn img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.five-btn-positioner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+}
+
+.exit-btn {
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  -webkit-filter: drop-shadow(0 2px 2px #1a1a1a);
+          filter: drop-shadow(0 2px 2px #1a1a1a);
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 35px;
+  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */

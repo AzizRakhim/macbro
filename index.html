@@ -17,23 +17,66 @@
 
 <body>
     <section id="hero" class="hero">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
         <div class="container">
             <div class="hero__whole-container d-flex align-items-center">
                 <div class="hero__img-holder col-6">
                     <div class="hero__smth position-relative">
                         <div class="hero__big-img-holder d-flex">
-                           
+
                         </div>
-                        <i class='bx bx-fullscreen'></i>
+                        <button class="full-screen">
+                            <i class='bx bx-fullscreen'></i>
+                        </button>
                     </div>
                     <ul class="hero__list d-flex align-items-center mt-4">
-                        
+
                     </ul>
                 </div>
                 <div class="hero__info col-6">
                     <div class="d-flex">
                         <div class="title-holder">
-    
+
                         </div>
                         <i class='bx bx-link-external'></i>
                     </div>
@@ -42,7 +85,7 @@
                             Ram
                         </h3>
                         <ul class="hero__choice-list ram-list d-flex align-items-center">
-                            
+
                         </ul>
                     </div>
                     <div class="hero__container">
@@ -118,6 +161,25 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Hero end -->
+    <!-- Modal start -->
+
+    <section class="modal-part w-100">
+        <div class="translate-div">
+            <div class="modal-list">
+                
+            </div>
+        </div>
+        <div class="five-btn-positioner position-relative">
+            <ul class="modal-btn-div">
+                
+            </ul>
+            <button class="exit-btn">
+                <i class='bx bx-exit-fullscreen'></i>
+            </button>
         </div>
     </section>
 

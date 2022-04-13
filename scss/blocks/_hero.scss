@@ -238,7 +238,9 @@
   text-decoration: line-through;
 }
 
-.bx-fullscreen{
+.full-screen{
+  border: none;
+  background-color: transparent;
   font-size: 35px;
   position: absolute;
   bottom: 0;
@@ -257,4 +259,87 @@
   font-size: 30px;
   color: #06c;
   cursor: pointer;
+}
+
+.modal-part{
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1111;
+}
+
+.translate-div{
+  width: 550px;
+  height: 80vh;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-300px);
+  overflow: hidden;
+}
+
+.modal-list{
+  display: flex;
+  transition: all 0.5s ease;
+}
+
+.modal-item{
+  img{
+    width: 550px;
+    height: 100%;
+  }
+}
+
+.modal-btn-div{
+  @include list-style;
+  display: flex;
+}
+
+.modal-item-btn{
+  width: 150px;
+  height: 150px;
+  margin: 2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &.active{
+    border: 2px solid #1d1d1d;
+  }
+
+  img{
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.modal-btn{
+  border: none;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.five-btn-positioner{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.exit-btn{
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  filter: drop-shadow(0 2px 2px #1a1a1a);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 35px;
+  color: #fff;
 }
