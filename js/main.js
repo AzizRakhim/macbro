@@ -423,7 +423,7 @@ function carousel(){
       });
       item.classList.add("active");
 
-      elBigImgHolder.style.transform = `translateX(${-index * 550}px)`;
+      elBigImgHolder.style.transform = `translateX(${-index * 507}px)`;
     });
   });  
 }
