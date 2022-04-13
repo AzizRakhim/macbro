@@ -255,7 +255,11 @@
   }
 }
 
-.bx-link-external{
+.external-btn{
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
   font-size: 30px;
   color: #06c;
   cursor: pointer;

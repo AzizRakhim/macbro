@@ -498,3 +498,12 @@ function carouselModal(){
     });
   });  
 }
+
+// Title external link
+
+let elExternal = document.querySelector(".external-btn");
+
+elExternal.addEventListener("click", () => {
+  elExternal.style.fontSize = "15px";
+  elExternal.innerHTML = "Nusxa olindi";
+});
