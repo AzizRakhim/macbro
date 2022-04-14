@@ -960,6 +960,17 @@ body {
   margin: 0;
 }
 
+.footer__udevs {
+  text-decoration: none;
+  color: #06c;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.footer__udevs:hover {
+  color: #1d1d1f;
+}
+
 .desc__btn-holder {
   width: 100%;
   padding: 5px;
