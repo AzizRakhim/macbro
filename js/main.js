@@ -57,7 +57,7 @@ let elRamList = document.querySelector(".ram-list");
 
 macObject.forEach((item) => {
   let elRamItem = document.createElement("li");
-  elRamItem.className = "hero__choice-item col-4";
+  elRamItem.className = "hero__choice-item col-6 col-lg-4";
 
   elRamItem.innerHTML = `
     <button class="hero__choice-btn ram-btn">
@@ -77,7 +77,7 @@ let elMemoryList = document.querySelector(".memory-list");
 
 macObject[0].spec.forEach((item) => {
   let elItem = document.createElement("li");
-  elItem.className = "hero__choice-item col-4";
+  elItem.className = "hero__choice-item col-6 col-lg-4";
 
   elItem.innerHTML = `
     <button class="hero__choice-btn memory-btn">
@@ -370,7 +370,7 @@ elRamItems.forEach((item, index) => {
 
     macObject[index].spec.forEach((item) => {
       let elItem = document.createElement("li");
-      elItem.className = "hero__choice-item col-4";
+      elItem.className = "hero__choice-item col-6 col-lg-4";
     
       elItem.innerHTML = `
         <button class="hero__choice-btn memory-btn">
@@ -423,7 +423,9 @@ function carousel(){
       });
       item.classList.add("active");
 
-      elBigImgHolder.style.transform = `translateX(${-index * 507}px)`;
+      let elSlideWidth = document.querySelector('.hero__img-keeper img').clientWidth;
+      console.log(elSlideWidth);
+      elBigImgHolder.style.transform = `translateX(${-index * elSlideWidth}px)`;
     });
   });  
 }
@@ -560,5 +562,8 @@ function carouselIt(){
     elRight.style.display = "block";
   }
 
-  elSimilarList.style.transform = `translate(${-elCheck * 33.3}%)`;
+  let elWidth = document.querySelector(".similar__item").clientWidth;
+  console.log(elWidth);
+
+  elSimilarList.style.transform = `translate(${-elCheck * elWidth}px)`;
 }
